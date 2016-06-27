@@ -1,2 +1,2 @@
 # test-project
-angular
+angular例子、生成二维码例子
