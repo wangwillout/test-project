@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<!-- saved from url=(0019)https://github.com/ -->
+<html lang="en" class=" is-copy-enabled is-u2f-enabled">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+</head>
+
+
+<body>
+	<div ng-app="Test">
+	
+		<div ng-controller="TestCtrl">
+			<h1>{{testData}}</h1>
+			<h1 ng-bind="testData"></h1>
+			<div ng-repeat="item in data">
+				<h1 ng-bind="item.name"></h1>
+			</div>
+			
+			<input type="text" ng-model="name" />
+		
+			<h1> Hello , {{name}} </h1>
+			
+			{{ 12.45 | currency:'$'}} 
+		
+			<button ng-click="testFunc()"> Add item </button>
+			<wsf></wsf>
+			<div wsf=""></div>
+			<div class="wsf"></div>
+		</div>
+	
+	</div>
+</body>
+
+<script type="text/javascript" src="angular.js"></script>
+<script type="text/javascript">
+	var app = angular.module('Test', []);
+	app.controller('TestCtrl', function($scope) {
+		$scope.testData = 'hello world';
+		$scope.data = [
+			{
+				"name": "name1",
+				"age": "1"
+			},
+			{
+				"name": "name2",
+				"age": "2"
+			}
+		];
+		$scope.testFunc = function()
+		{
+			$scope.data.push({"name":"name..","age":"2"});
+		}
+	});
+	app.directive('wsf', function() {
+		return {
+			restrict: 'EAC',
+			template: '<div><h1>Hi there</h1></div>',
+			replace: true
+		};
+	});
+</script>
+
+</html>
